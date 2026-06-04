@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#F4D9D0"/>
+  <ellipse cx="200" cy="180" rx="100" ry="70" fill="#C9A0A0" opacity="0.3"/>
+  <circle cx="170" cy="165" r="25" fill="#E8D5A8" opacity="0.5"/>
+  <circle cx="230" cy="165" r="25" fill="#E8D5A8" opacity="0.5"/>
+  <text x="200" y="360" text-anchor="middle" font-family="serif" font-size="16" fill="#7A3B3B" opacity="0.5">Photo 4</text>
+</svg>

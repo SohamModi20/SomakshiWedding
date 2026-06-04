@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="98" fill="#F4D9D0" stroke="#C9A66B" stroke-width="2"/>
+  <circle cx="100" cy="82" r="35" fill="#C9A0A0"/>
+  <ellipse cx="100" cy="145" rx="42" ry="30" fill="#C9A0A0"/>
+  <circle cx="100" cy="82" r="35" fill="none" stroke="#7A3B3B" stroke-width="1.5" opacity="0.3"/>
+  <!-- Veil hint -->
+  <path d="M65 65 Q100 40 135 65" fill="none" stroke="#E8D5A8" stroke-width="1.5" opacity="0.5"/>
+  <text x="100" y="185" text-anchor="middle" font-family="serif" font-size="11" fill="#7A3B3B" opacity="0.6">Bride</text>
+</svg>

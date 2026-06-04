@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#E8D5A8"/>
+  <circle cx="160" cy="180" r="50" fill="#C9A0A0" opacity="0.35"/>
+  <circle cx="250" cy="180" r="50" fill="#C9A0A0" opacity="0.35"/>
+  <path d="M160 230 Q205 280 250 230" fill="none" stroke="#7A3B3B" stroke-width="1.5" opacity="0.3"/>
+  <text x="200" y="360" text-anchor="middle" font-family="serif" font-size="16" fill="#7A3B3B" opacity="0.5">Photo 2</text>
+</svg>
