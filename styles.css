@@ -137,13 +137,13 @@ a {
 }
 
 .caricature-img {
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  border: 3px solid var(--gold-light);
+  border: 4px solid var(--gold-light);
   object-fit: cover;
   background: var(--blush);
-  box-shadow: 0 4px 20px rgba(201, 166, 107, 0.25);
+  box-shadow: 0 6px 25px rgba(201, 166, 107, 0.3);
 }
 
 .caricature-label {
@@ -555,8 +555,8 @@ a {
   }
 
   .caricature-img {
-    width: 110px;
-    height: 110px;
+    width: 160px;
+    height: 160px;
   }
 
   .ampersand {
@@ -603,8 +603,8 @@ a {
   }
 
   .caricature-img {
-    width: 90px;
-    height: 90px;
+    width: 130px;
+    height: 130px;
   }
 
   .section-title {
