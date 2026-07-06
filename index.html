@@ -145,7 +145,7 @@
         <h3 class="event-name">Reception</h3>
         <p class="event-datetime">August 1, 2026</p>
         <p class="event-location">Shreeyash Palace, Pandharpur</p>
-        <p class="event-note">Join us for dinner, drinks, and dancing.</p>
+        <p class="event-note">Join us for dinner.</p>
       </article>
 
     </div>
@@ -193,25 +193,27 @@
     <h2 class="section-title reveal">Our Moments</h2>
     <div class="gold-divider reveal"></div>
 
-    <div class="gallery-grid reveal">
-      <div class="gallery-item" data-index="0">
-        <img src="assets/gallery/1.svg" alt="Gallery photo 1" loading="lazy">
+    <div class="slideshow reveal" id="slideshow">
+      <div class="slides" id="slides">
+        <div class="slide"><img src="images/_08A6079.jpg" alt="Our moment 5" loading="lazy" style="object-position: center 70%;"></div>
+        <div class="slide"><img src="images/_08A6387.jpg" alt="Our moment 11" loading="lazy"></div>
+        <div class="slide"><img src="images/_08A6137.jpg" alt="Our moment 6" loading="lazy" style="object-position: center 70%;"></div>
+        <div class="slide"><img src="images/_08A6539.jpg" alt="Our moment 12" loading="lazy"></div>
+        <div class="slide"><img src="images/_08A6547.jpg" alt="Our moment 13" loading="lazy"></div>
+        <div class="slide"><img src="images/_08A5771.jpg" alt="Our moment 1" loading="lazy"></div>
+        <div class="slide"><img src="images/_08A5789.jpg" alt="Our moment 2" loading="lazy" style="object-position: center 70%;"></div>
+        <div class="slide"><img src="images/_08A5883.jpg" alt="Our moment 3" loading="lazy" style="object-position: center 70%;"></div>
+        <div class="slide"><img src="images/_08A6023.jpg" alt="Our moment 4" loading="lazy"></div>
+        <div class="slide"><img src="images/_08A6247.jpg" alt="Our moment 7" loading="lazy"></div>
+        <div class="slide"><img src="images/_08A6269.jpg" alt="Our moment 8" loading="lazy"></div>
+        <div class="slide"><img src="images/_08A6354.jpg" alt="Our moment 9" loading="lazy"></div>
+        <div class="slide"><img src="images/_08A6361.jpg" alt="Our moment 10" loading="lazy"></div>
       </div>
-      <div class="gallery-item" data-index="1">
-        <img src="assets/gallery/2.svg" alt="Gallery photo 2" loading="lazy">
-      </div>
-      <div class="gallery-item" data-index="2">
-        <img src="assets/gallery/3.svg" alt="Gallery photo 3" loading="lazy">
-      </div>
-      <div class="gallery-item" data-index="3">
-        <img src="assets/gallery/4.svg" alt="Gallery photo 4" loading="lazy">
-      </div>
-      <div class="gallery-item" data-index="4">
-        <img src="assets/gallery/5.svg" alt="Gallery photo 5" loading="lazy">
-      </div>
-      <div class="gallery-item" data-index="5">
-        <img src="assets/gallery/6.svg" alt="Gallery photo 6" loading="lazy">
-      </div>
+
+      <button class="slideshow-arrow slideshow-prev" id="slide-prev" aria-label="Previous photo">&#10094;</button>
+      <button class="slideshow-arrow slideshow-next" id="slide-next" aria-label="Next photo">&#10095;</button>
+
+      <div class="slideshow-dots" id="slideshow-dots"></div>
     </div>
 
     <!-- Lightbox overlay -->
