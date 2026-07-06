@@ -58,59 +58,96 @@ function initReveal() {
 
 document.addEventListener('DOMContentLoaded', initReveal);
 
-/* ── Gallery Lightbox ───────────────────────── */
+/* ── Gallery Slideshow + Lightbox ───────────── */
 
-function initLightbox() {
-  const lightbox   = document.getElementById('lightbox');
-  const lbImg      = document.getElementById('lightbox-img');
-  const btnClose   = document.getElementById('lightbox-close');
-  const btnPrev    = document.getElementById('lightbox-prev');
-  const btnNext    = document.getElementById('lightbox-next');
-  const items      = document.querySelectorAll('.gallery-item');
-  let currentIndex = 0;
+function initGallery() {
+  const slides   = Array.from(document.querySelectorAll('.slide'));
+  if (!slides.length) return;
 
-  const srcs = Array.from(items).map((item) => item.querySelector('img').src);
+  const dotsWrap = document.getElementById('slideshow-dots');
+  const slidePrev = document.getElementById('slide-prev');
+  const slideNext = document.getElementById('slide-next');
 
-  function open(index) {
-    currentIndex = index;
-    lbImg.src = srcs[currentIndex];
+  const lightbox = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lightbox-img');
+  const btnClose = document.getElementById('lightbox-close');
+  const btnPrev  = document.getElementById('lightbox-prev');
+  const btnNext  = document.getElementById('lightbox-next');
+
+  const srcs = slides.map((slide) => slide.querySelector('img').src);
+  const AUTOPLAY_MS = 4000;
+  let current = 0;
+  let timer   = null;
+
+  /* build dots */
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `Go to photo ${i + 1}`);
+    dot.addEventListener('click', () => { show(i); restart(); });
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function show(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function nextSlide() { show(current + 1); }
+  function prevSlide() { show(current - 1); }
+
+  function start() { timer = setInterval(nextSlide, AUTOPLAY_MS); }
+  function stop()  { clearInterval(timer); }
+  function restart() { stop(); start(); }
+
+  slideNext.addEventListener('click', () => { nextSlide(); restart(); });
+  slidePrev.addEventListener('click', () => { prevSlide(); restart(); });
+
+  const slideshow = document.getElementById('slideshow');
+  slideshow.addEventListener('mouseenter', stop);
+  slideshow.addEventListener('mouseleave', start);
+
+  /* Lightbox */
+  function openLightbox(index) {
+    current = index;
+    lbImg.src = srcs[current];
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+    stop();
   }
 
-  function close() {
+  function closeLightbox() {
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
+    show(current);
+    start();
   }
 
-  function prev() {
-    currentIndex = (currentIndex - 1 + srcs.length) % srcs.length;
-    lbImg.src = srcs[currentIndex];
-  }
+  function lbPrev() { current = (current - 1 + srcs.length) % srcs.length; lbImg.src = srcs[current]; }
+  function lbNext() { current = (current + 1) % srcs.length; lbImg.src = srcs[current]; }
 
-  function next() {
-    currentIndex = (currentIndex + 1) % srcs.length;
-    lbImg.src = srcs[currentIndex];
-  }
-
-  items.forEach((item, i) => {
-    item.addEventListener('click', () => open(i));
+  slides.forEach((slide, i) => {
+    slide.addEventListener('click', () => openLightbox(i));
   });
 
-  btnClose.addEventListener('click', close);
-  btnPrev.addEventListener('click', prev);
-  btnNext.addEventListener('click', next);
+  btnClose.addEventListener('click', closeLightbox);
+  btnPrev.addEventListener('click', lbPrev);
+  btnNext.addEventListener('click', lbNext);
 
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) close();
+    if (e.target === lightbox) closeLightbox();
   });
 
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape')     close();
-    if (e.key === 'ArrowLeft')  prev();
-    if (e.key === 'ArrowRight') next();
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  lbPrev();
+    if (e.key === 'ArrowRight') lbNext();
   });
+
+  show(0);
+  start();
 }
 
-document.addEventListener('DOMContentLoaded', initLightbox);
+document.addEventListener('DOMContentLoaded', initGallery);
