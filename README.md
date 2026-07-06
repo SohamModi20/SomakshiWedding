@@ -55,12 +55,11 @@ Replace these files with your actual caricature images:
 
 Square images work best (they'll be displayed as circles).
 
-### 6. Gallery Photos (`assets/gallery/`)
+### 6. Gallery Slideshow (`images/`)
 
-Replace the placeholder SVGs (`1.svg` through `6.svg`) with your actual photos (`.jpg`, `.png`, `.webp`).
-Update the file extensions in `index.html` if you change them — search for `assets/gallery/`.
+The gallery is an auto-playing slideshow (fades every 4 seconds, pauses on hover, click a photo to enlarge in the lightbox). Photos live in the `images/` folder.
 
-To add more photos: duplicate a `<div class="gallery-item">` block in the HTML and add the new image file.
+To add, remove, or reorder photos: edit the `<div class="slide">` blocks inside `<div class="slides">` in `index.html`, pointing each `src` at a file in `images/`. The navigation dots are generated automatically from the number of slides.
 
 ---
 
